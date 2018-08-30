@@ -1,21 +1,21 @@
 # desktopcap
-macOS에서 ffmpeg를 이용해서 화면을 캡쳐하는 방법을 설명합니다.
-ffmpeg 명령어에서 avfoundation을 사용하면 됩니다.
+macOS에서 ffmpeg를 이용해서 작업화면 또는 카메라 캡쳐하는 방법을 설명합니다.
+ffmpeg 명령어에서 avfoundation 기능을 사용하는 예제입니다.
 
 #### ffmpeg 설치하기
+- 이 작업을 위해서는 먼저 ffmpeg가 설치되어 있어야 합니다.
 - brew를 통해서 ffmpeg를 설치합니다.
 ```bash
 $ brew install ffmpeg
 ```
 
 #### input Device 검색하기
-먼저 해당 컴퓨터에 캡쳐에 필요한 input device 목록을 확인하기 위해서는 아래와 같은 명령어를 입력해주세요.
-- macOS input device 장비목록을 보기
+- 해당 컴퓨터에 캡쳐에 필요한 input device 목록을 확인하기 위해서는 터미널에 아래 명령어를 입력해주세요.
 ```bash
 $ ffmpeg -f avfoundation -list_devices true -i ""
 ```
 
-- 맨 아랫줄에 AVFoundation input device 항목이 출력됩니다.
+- 명령어를 터미널에 잘 입력했다면, 맨 아랫줄에 AVFoundation input device 항목이 출력됩니다.
 
 ```
 ffmpeg version 4.0.1 Copyright (c) 2000-2018 the FFmpeg developers
@@ -37,15 +37,15 @@ ffmpeg version 4.0.1 Copyright (c) 2000-2018 the FFmpeg developers
 [AVFoundation input device @ 0x7fa6d940e940] [0] Built-in Microphone
 ```
 
-- 저는 내장카메라 0번, 화면 1번, 내장마이크 0번 총 3개의 장비를 사용할 수 있네요.
+- 저는 내장카메라 0번, 화면 1번, 내장마이크 0번 총 3개의 장비를 사용할 수 있다고 나옵니다.
 
-#### 레코딩하기
-- 아래 명령을 이용해서 위 device를 소스로 레코딩하는 명령어는 아래와 같습니다.
+#### 화면 레코딩하기
+- 위 device를 소스로해서 화면 또는 카메라를 레코딩하는 터미널 명령어는 아래와 같습니다.
 ```bash
 $ ffmpeg -f avfoundation -i "<screen device index>:<audio device index>" output.mkv
 ```
 
-- 작업화면과 목소리를 담고 싶다면 아래 명령어를 터미널에서 입력해주세요.
+- 작업화면 + 목소리를 담고 싶다면 아래 명령어를 터미널에서 입력해주세요.
 ```bash
 $ ffmpeg -f avfoundation -i "1:0" output.mkv
 ```
@@ -54,3 +54,5 @@ $ ffmpeg -f avfoundation -i "1:0" output.mkv
 ```bash
 $ ffmpeg -f avfoundation -i "0:0" output.mkv
 ```
+
+이상 ffmpeg를 이용한 화면캡쳐, 카메라 캡쳐 방법을 알아보았습니다.
