@@ -40,7 +40,7 @@ ffmpeg version 4.0.1 Copyright (c) 2000-2018 the FFmpeg developers
 - 저는 내장카메라 0번, 화면 1번, 내장마이크 0번 총 3개의 장비를 사용할 수 있다고 나옵니다.
 
 #### 화면 레코딩하기
-- 위 device를 소스로해서 화면 또는 카메라를 레코딩하는 터미널 명령어는 아래와 같습니다.
+- 위 input device를 소스로 사용하여 화면 또는 카메라를 레코딩하는 터미널 명령어는 아래와 같습니다.
 ```bash
 $ ffmpeg -f avfoundation -i "<screen device index>:<audio device index>" output.mkv
 ```
