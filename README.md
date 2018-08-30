@@ -56,3 +56,8 @@ $ ffmpeg -f avfoundation -i "0:0" output.mkv
 ```
 
 이상 ffmpeg를 이용한 화면캡쳐, 카메라 캡쳐 방법을 알아보았습니다.
+mkv 를 mp4로 바꿔야 한다면, ffmpeg를 이용해서 한번더 컨버팅해주세요.
+명령어는 아래와 같습니다.
+```bash
+$ ffmpeg -i output.mkv -vcodec copy -acodec copy output.mp4
+```
