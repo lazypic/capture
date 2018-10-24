@@ -1,4 +1,4 @@
-# desktopcap
+# capture
 macOS에서 ffmpeg를 이용해서 작업화면 또는 카메라 캡쳐하는 방법을 설명합니다.
 ffmpeg 명령어에서 avfoundation 기능을 사용하는 예제입니다.
 
